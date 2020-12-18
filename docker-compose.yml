@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017-27019:27017-27019
+  prze-company:
+    build:
+      context: /mnt/c/dev/workspace/prze-company
+    container_name: prze-company
+    ports:
+      - 8080:8080
+    links:
+      - mongodb
